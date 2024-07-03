@@ -5,9 +5,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-"""class LoginInfoViewSet(ModelViewSet):
+class LoginInfoViewSet(ModelViewSet):
     queryset=loginInfo.objects.all()
-    serializer_class=loginInfoSerializer""" # what's the purpose of this class?
+    serializer_class=loginInfoSerializer # what's the purpose of this class?
 
 @api_view(['POST'])
 def verify(request):
@@ -22,7 +22,7 @@ def verify(request):
                 if userobj.password == passw:
                     return Response({'message': 'success'}, status=status.HTTP_200_OK)
                 else:
-                    return Response({'message': 'incorrectPassword'}, status=status.HTTP_205_RESET_CONTENT)
+                    return Response({'message': 'incorrectPassword'}, status=status.HTTP_200_OK)
             return Response({'message': 'userNotFound'}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     return Response(status= status.HTTP_405_METHOD_NOT_ALLOWED)
